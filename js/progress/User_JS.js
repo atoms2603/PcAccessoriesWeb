@@ -1,5 +1,5 @@
 var a;
-const url = 'https://pcaccessorieswebapi.azurewebsites.net/api/User/';
+const url = 'https://pcaccessorieswebapi.azurewebsites.net/cms/api/user/';
 
 async function checkLogin(){
     var usname=document.getElementById('user_username').value;
