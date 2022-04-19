@@ -1,5 +1,6 @@
 var a;
 const url = 'https://pcaccessorieswebapi.azurewebsites.net/cms/api/user/';
+var token;
 
 async function checkLogin(){
     var usname=document.getElementById('user_username').value;
@@ -20,6 +21,7 @@ async function checkLogin(){
     const myJson = await response.json();
     console.log(response);
     console.log(myJson);
+    token = myJson;
 }
 
 async function checkRegister(){
@@ -50,4 +52,22 @@ async function checkRegister(){
     const myJson = await response.json();
     console.log(response);
     console.log(myJson);
+}
+
+async function GetAdminDetail(){
+    $.ajax({
+        url: url +'admin',
+        type: 'GET',
+        contentType: 'application/json',
+        headers: {
+           authorization : 'Bearer '+token
+        },
+        success: function (result) {
+            console.log(result);
+        },
+        error: function (error) {
+     
+        }
+     });
+    
 }
